@@ -1,0 +1,22 @@
+{
+  "name": "rapido-raptorjs",
+  "version": "0.1.0",
+  "description": "Rapido commands for the RaptorJS Toolkit",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/raptorjs/rapido-raptorjs.git"
+  },
+  "keywords": [
+    "rapido",
+    "raptorjs",
+    "ui",
+    "toolkit"
+  ],
+  "author": "Patrick Steele-Idem <psteeleidem@ebay.com>",
+  "license": "BSD",
+  "readmeFilename": "README.md"
+}
