@@ -18,7 +18,7 @@ module.exports = {
 
 
     validate: function(args, rapido) {
-        var appName = args._[0].
+        var appName = args._[0],
             outputDir;
 
         if (!appName) {
@@ -38,6 +38,8 @@ module.exports = {
     },
 
     run: function(args, config, rapido) {
+        var outputDir = args.outputDir;
+        
         var scaffoldDir = config["scaffold.webapp.dir"];
         if (!scaffoldDir) {
             console.error('"scaffold.webapp.dir" not defined in .rapido config file');
