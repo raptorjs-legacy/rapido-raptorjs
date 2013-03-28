@@ -75,11 +75,13 @@ module.exports = {
                             var rtldXml = appRtldFile.readAsString();
                             var componentRtldPath = path.relative(appRtldFile.getParent(), outputFile.getAbsolutePath());
                             
+                            var relPathToRtld = path.relative(process.cwd(), appRtldFile.getAbsolutePath());
+
                             var newTaglibElement = '<import-taglib path="' + componentRtldPath + '"/>';
                             if (rtldXml.indexOf(newTaglibElement) === -1) {
                                 rtldXml = rtldXml.replace('</raptor-taglib>', '    ' + newTaglibElement  + '\n</raptor-taglib>');
                                 appRtldFile.writeAsString(rtldXml);
-                                rapido.log.success('update', 'Added ' + newTaglibElement + ' to "' + appRtldFile.getAbsolutePath()) + '"';
+                                rapido.log.success('update', 'Imported taglib into "' + relPathToRtld + '"');
                             }
                         }
                     }

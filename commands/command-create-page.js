@@ -9,7 +9,7 @@ module.exports = {
     },
 
     validate: function(args, rapido) {
-        var name = argv._[0];
+        var name = args._[0];
         if (!name) {
             throw 'Page name is required';
         }

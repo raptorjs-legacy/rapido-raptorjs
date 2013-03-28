@@ -13,6 +13,10 @@ module.exports = {
         'no-testing': {
             'boolean': true,
             describe: 'Do not generate code related to testing'
+        },
+        'overwrite': {
+            'boolean': true,
+            describe: 'Overwrite existing files'
         }
     },
 
@@ -30,6 +34,7 @@ module.exports = {
         }
 
         return {
+            overwrite: args.overwrite === true,
             name: appName,
             outputDir: outputDir,
             includeTesting: args.testing !== false,
@@ -38,7 +43,8 @@ module.exports = {
     },
 
     run: function(args, config, rapido) {
-        var outputDir = args.outputDir;
+        var outputDir = args.outputDir,
+            overwrite = args.overwrite;
         
         var scaffoldDir = config["scaffold.webapp.dir"];
         if (!scaffoldDir) {
@@ -52,6 +58,7 @@ module.exports = {
             {
                 scaffoldDir: scaffoldDir,
                 outputDir: args.outputDir,
+                overwrite: true,
                 viewModel: {
                     appName: args.name,
                     ifStatic: isStatic,
@@ -61,6 +68,20 @@ module.exports = {
                 },
                 afterFile: function(outputFile) {
                     
+                },
+                beforeFile: function(outputFile, content) {
+                    if (outputFile.exists()) {
+                        if (outputFile.getName() === 'rapido.json') {
+                            // File already exists... we need to merge
+                            var newConfig = JSON.parse(content);
+                            rapido.updateConfig(outputFile, newConfig);
+                            rapido.log.success('update', outputFile.getAbsolutePath());
+                            return false;
+                        }
+                        return overwrite;
+                    }
+
+                    return true;
                 }
             });
         rapido.log.success('finished', 'Webapp written to "' + outputDir + '"');
