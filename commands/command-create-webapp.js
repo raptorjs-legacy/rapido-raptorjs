@@ -59,7 +59,7 @@ module.exports = {
                 scaffoldDir: scaffoldDir,
                 outputDir: args.outputDir,
                 overwrite: true,
-                viewModel: {
+                data: {
                     appName: args.name,
                     ifStatic: isStatic,
                     ifDynamic: !isStatic,

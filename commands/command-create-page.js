@@ -56,19 +56,17 @@ module.exports = {
             nameDashSeparated = dashSeparate(name),
             dirPath = name;
 
-        var viewModel = {
-                name: name,
-                nameDashSeparated: nameDashSeparated,
-                shortName: shortName,
-                shortNameLower: shortNameLower,
-                shortNameDashSeparated: shortNameDashSeparated
-            };
-
         rapido.scaffold(
             {
                 scaffoldDir: scaffoldDir,
                 outputDir: outputDir,
-                viewModel: viewModel,
+                data: {
+                    name: name,
+                    nameDashSeparated: nameDashSeparated,
+                    shortName: shortName,
+                    shortNameLower: shortNameLower,
+                    shortNameDashSeparated: shortNameDashSeparated
+                },
                 afterFile: function(outputFile) {
                     
                 }

@@ -118,23 +118,22 @@ module.exports = {
         var filename = path.basename(templatePath, '.rhtml');
         var outputFile = new File(path.resolve(process.cwd(), templatePath));
         var outputDir = outputFile.getParentFile();
-        var viewModel = {
-            filename: filename,
-            name: name,
-            params: params,
-            paramsArray: paramsArray,
-            defaultParams: defaultParams,
-            taglibs: taglibs,
-            ifWidget: widget != null,
-            widget: widget,
-            className: className || name
-        };
 
         rapido.scaffold(
             {
                 scaffoldDir: scaffoldDir,
                 outputDir: outputDir,
-                viewModel: viewModel,
+                data: {
+                    filename: filename,
+                    name: name,
+                    params: params,
+                    paramsArray: paramsArray,
+                    defaultParams: defaultParams,
+                    taglibs: taglibs,
+                    ifWidget: widget != null,
+                    widget: widget,
+                    className: className || name
+                },
                 overwrite: overwrite,
                 afterFile: function(outputFile) {
                     

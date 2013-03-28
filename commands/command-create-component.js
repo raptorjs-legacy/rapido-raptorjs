@@ -59,7 +59,7 @@ module.exports = {
             {
                 scaffoldDir: scaffoldDir,
                 outputDir: outputDir,
-                viewModel: {
+                data: {
                     ifWidget: args.includeWidget,
                     name: componentInfo.name,
                     shortName: componentInfo.shortName,
