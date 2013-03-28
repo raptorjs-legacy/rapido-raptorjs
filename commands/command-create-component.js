@@ -52,7 +52,7 @@ module.exports = {
         var scaffoldDir = config['scaffold.component.dir'];
 
         if (!scaffoldDir) {
-            throw new Error('"scaffold.component.dir" not defined in ".rapido" config file');
+            throw new Error('"scaffold.component.dir" not defined in "rapido.json" config file');
         }
 
         rapido.scaffold(

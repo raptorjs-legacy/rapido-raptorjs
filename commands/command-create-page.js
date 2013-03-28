@@ -21,7 +21,7 @@ module.exports = {
     run: function(args, config, rapido) {
         var scaffoldDir = config["scaffold.page.dir"];
         if (!scaffoldDir) {
-            throw new Error('"scaffold.page.dir" not defined in ".rapido" config file');
+            throw new Error('"scaffold.page.dir" not defined in "rapido.json" config file');
         }
 
         var name = args.name;

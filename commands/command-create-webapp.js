@@ -42,7 +42,7 @@ module.exports = {
         
         var scaffoldDir = config["scaffold.webapp.dir"];
         if (!scaffoldDir) {
-            console.error('"scaffold.webapp.dir" not defined in .rapido config file');
+            console.error('"scaffold.webapp.dir" not defined in rapido.json config file');
             return;
         }
 
