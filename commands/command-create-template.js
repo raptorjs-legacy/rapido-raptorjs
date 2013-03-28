@@ -58,7 +58,7 @@ module.exports = {
 
         var scaffoldDir = config["scaffold.template.dir"];
         if (!scaffoldDir) {
-            console.error('"scaffold.template.dir" not defined in rapido.json config file');
+            console.error('"scaffold.template.dir" not defined in ' + rapido.configFilename + ' config file');
             return;
         }
 

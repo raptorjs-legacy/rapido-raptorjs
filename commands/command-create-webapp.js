@@ -48,7 +48,7 @@ module.exports = {
         
         var scaffoldDir = config["scaffold.webapp.dir"];
         if (!scaffoldDir) {
-            console.error('"scaffold.webapp.dir" not defined in rapido.json config file');
+            console.error('"scaffold.webapp.dir" not defined in ' + rapido.configFilename + ' config file');
             return;
         }
 
@@ -71,7 +71,7 @@ module.exports = {
                 },
                 beforeFile: function(outputFile, content) {
                     if (outputFile.exists()) {
-                        if (outputFile.getName() === 'rapido.json') {
+                        if (outputFile.getName() === rapido.configFilename) {
                             // File already exists... we need to merge
                             var newConfig = JSON.parse(content);
                             rapido.updateConfig(outputFile, newConfig);
