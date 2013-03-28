@@ -87,7 +87,7 @@ module.exports = {
                     }
                 }
             });
-        rapido.log.success('finished', 'UI component written to "' + outputDir + '"');
+        rapido.log.success('finished', 'UI component written to "' + rapido.relativePath(outputDir) + '"');
         rapido.log('\nAdd the following dependency to your page:');
         rapido.log.info('<module name="' + name + '"/>');
         rapido.log('Or, to render client-side, add the following instead:');
