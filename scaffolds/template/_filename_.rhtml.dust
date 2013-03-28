@@ -1,0 +1,13 @@
+<c:template{taglibs|s}
+    name="{name}"
+    params="{params}">
+    
+    <div class="{className}"{?ifWidget} w:widget="{widget}"{/ifWidget}>
+        <h1>{name}</h1>{?defaultParams}
+        Hello $name! You have $count new messages.{/defaultParams}{?paramsArray}
+        <ul>
+{#paramsArray}            <li>{.}: ${.}</li>
+{/paramsArray}        </ul>{/paramsArray}
+    </div>
+
+</c:template>

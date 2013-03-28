@@ -18,38 +18,29 @@ function getComponentInfo(name) {
 }
 
 module.exports = {
+    usage: 'Usage: $0 create component <component-name>',
 
-    parseOptions: function(args, rapido) {
-
-        var options;
-
-        rapido.optimist(args)
-            .usage('Usage: raptor create component <component-name>')
-            .boolean('no-widget')
-            .describe('no-widget', 'Do not generate a widget')
-            .describe('help', 'Show this message')
-            .check(function(argv) {
-                if (argv.help) {
-                    throw '';
-                }
-
-                var name = argv._[0];
-                if (!name) {
-                    throw 'Component name is required';
-                }
-
-                options = {
-                    name: name,
-                    includeWidget: argv['widget'] !== false
-                }
-            })
-            .argv; 
-
-        return options;
+    options: {
+        'no-widget': {
+            boolean: true,
+            describe: 'Do not generate a widget'
+        }
     },
 
-    run: function(options, config, rapido) {
-        var name = options.name;
+    validate: function(args, rapido) {
+        var name = args._[0];
+        if (!name) {
+            throw 'Component name is required';
+        }
+
+        return {
+            name: name,
+            includeWidget: args['widget'] !== false
+        };
+    },
+
+    run: function(args, config, rapido) {
+        var name = args.name;
         var baseDir = config['components.dir'] || process.cwd();
         var outputDir = new File(baseDir, name);
         var namespace = config['component.namespace'] || config['module.namespace'];
@@ -69,7 +60,7 @@ module.exports = {
                 scaffoldDir: scaffoldDir,
                 outputDir: outputDir,
                 viewModel: {
-                    ifWidget: options.includeWidget,
+                    ifWidget: args.includeWidget,
                     name: componentInfo.name,
                     shortName: componentInfo.shortName,
                     shortNameLower: componentInfo.shortNameLower,

@@ -2,36 +2,29 @@ var File = require('raptor/files/File'),
     files = require('raptor/files');
 
 module.exports = {
-    description: "Generates a RaptorJS page",
 
-    parseOptions: function(args) {
+    usage: 'Usage: $0 create page <page-name>',
 
-        var options;
-
-        require('optimist')(args)
-        .usage('Usage: $0 create page <page-name> [options]\n')
-        .check(function(argv) {
-            var name = argv._[0];
-            if (!name) {
-                throw 'Page name is required';
-            }
-            options = {
-                name: name
-            }
-        })
-        .argv; 
-
-        return options;
+    options: {
     },
 
-    run: function(options, config, cli) {
-        var name = null;
+    validate: function(args, rapido) {
+        var name = argv._[0];
+        if (!name) {
+            throw 'Page name is required';
+        }
+        return {
+            name: name
+        }
+    },
 
+    run: function(args, config, rapido) {
         var scaffoldDir = config["scaffold.page.dir"];
         if (!scaffoldDir) {
-            throw new Error('"scaffold.page.dir" not defined in ".raptor" config file');
+            throw new Error('"scaffold.page.dir" not defined in ".rapido" config file');
         }
 
+        var name = args.name;
         var pagePath = name;
 
         if (name.startsWith('/')) {
@@ -71,7 +64,7 @@ module.exports = {
                 shortNameDashSeparated: shortNameDashSeparated
             };
 
-        cli.generate(
+        rapido.scaffold(
             {
                 scaffoldDir: scaffoldDir,
                 outputDir: outputDir,
@@ -81,12 +74,15 @@ module.exports = {
                 }
             });
 
-        cli.logSuccess('finished', 'Page written to "' + outputDir + '"');
+        rapido.log.success('finished', 'Page written to "' + outputDir + '"');
 
         var isStatic = config['webapp.type'] === 'static';
 
         if (isStatic) {
-            cli.log('\nTo build page:\n#cyan[node build.js ' + pagePath + ']');
+            rapido.log('To build page:');
+            rapido.log.info('node build.js ' + pagePath);
+            rapido.log('Or, to build all pages:');
+            rapido.log.info('node build.js');
         }
     }
 }

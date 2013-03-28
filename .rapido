@@ -2,11 +2,24 @@
     "scaffold.component.dir": "scaffolds/component",
     "scaffold.page.dir": "scaffolds/page",
     "scaffold.webapp.dir": "scaffolds/webapp",
+    "scaffold.template.dir": "scaffolds/template",
     "stack.raptorjs": {
         "description": "Commands for the RaptorJS Toolkit",
         "command.create component": {
-            "description": "Creates a new RaptorJS UI Component",
-            "file": "command-create-component.js"
+            "description": "Creates a new RaptorJS UI component",
+            "file": "commands/command-create-component.js"
+        },
+        "command.create page": {
+            "description": "Creates a new RaptorJS page",
+            "file": "commands/command-create-page.js"
+        },
+        "command.create webapp": {
+            "description": "Creates a new RaptorJS webapp",
+            "file": "commands/command-create-webapp.js"
+        },
+        "command.create template": {
+            "description": "Creates a new Raptor Template file",
+            "file": "commands/command-create-template.js"
         }
     }
 }
