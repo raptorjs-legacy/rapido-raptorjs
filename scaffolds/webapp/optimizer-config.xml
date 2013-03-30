@@ -28,8 +28,8 @@
 
     <bundles name="default">
         <bundle name="core">
-            <module name="raptor"/>
-            <module name="raptor/widgets"/>
+            <module name="raptor" recursive="true"/>
+            <module name="raptor/widgets" recursive="true"/>
         </bundle>
     </bundles>
     
