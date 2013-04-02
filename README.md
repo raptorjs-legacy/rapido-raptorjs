@@ -18,6 +18,10 @@ Scaffolding is now supported using the [Rápido](https://github.com/raptorjs/rap
 sudo npm install rapido --global
 sudo npm install rapido-raptorjs --global
 ```
+To enable the `raptorjs` stack for a project, you will need to run the following command:
+```shell
+rap use raptorjs
+```
 
 ## Create a static webapp (server-less):
 ```shell
