@@ -10,6 +10,8 @@
         <dependencies>
             <module name="raptor"/>
             <module name="raptor/widgets"/>
+            <css path="{shortName.css}"/>
+            <js path="{shortName.js}"/>
             
             <!-- Required for asynchronous package loading: -->
             <module name="raptor/loader"/>
