@@ -28,7 +28,7 @@ module.exports = {
         },
         'widget': {
             describe: 'JavaScript class name for the widget'
-        }
+        },
         'overwrite': {
             describe: 'Overwrite existing template if one exists',
             boolean: true
@@ -36,13 +36,13 @@ module.exports = {
     },
 
     validate: function(args, rapido) {
-        if (argv._.length) {
-            argv.path = argv._[0];
+        if (args._.length) {
+            args.path = args._[0];
         }
 
-        delete argv._;
+        delete args._;
 
-        return argv;
+        return args;
     },
 
     run: function(args, config, rapido) {
@@ -93,11 +93,17 @@ module.exports = {
             
         }
         else {
-            taglibs = ["core"];
+            taglibs = ["c:core"];
         }
 
         taglibs = '\n' + taglibs.map(function(taglib) {
-            return '    xmlns:' + taglib +'="' + taglib + '"';
+            var prefix = taglib;
+            var parts = taglib.split(/[:]/);
+            if (parts.length === 2) {
+                prefix = parts[0];
+                taglib = parts[1];
+            }
+            return '    xmlns:' + prefix +'="' + taglib + '"';
         }).join('\n');
 
         var paramsArray = null,
