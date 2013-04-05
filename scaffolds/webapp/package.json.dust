@@ -11,7 +11,8 @@
     "license": "BSD",
     "dependencies": {
         "raptor": ">=2.3.0",
-        "optimist": "~0.3.5"
+        "optimist": "~0.3.5",
+        "raptor-static-website": "~0.1.0"
     },
     "devDependencies": {{?ifTesting}
         "jsdom": "0.5.2",

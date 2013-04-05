@@ -1,4 +1,9 @@
 require('raptor');
+require('raptor/logging').configure({
+    loggers: {
+        'raptor-static-website': {level: "INFO"}
+    }
+});
 
 var isDev,
     page;
@@ -32,21 +37,13 @@ require('raptor/templating/compiler').setWorkDir(path.join(__dirname, "work"));
 
 try
 {
-
-    var publisher = require('./publisher').createPublisher({
-        pagesDir: path.join(__dirname, 'modules/pages'),
-        modulesDir: modulesDir,
-        outputDir: path.join(__dirname, 'build'),
-        urlsIncludeFilename: isDev
+    require('raptor-static-website').writePages({
+        basePagesDir: path.join(__dirname, 'modules/pages'),
+        resourceSearchPathDir: modulesDir,
+        baseOutputDir: path.join(__dirname, 'build'),
+        urlsIncludeFilename: isDev,
+        singlePage: page
     });
-
-    if (page) {
-        publisher.publishPage(page);
-    }
-    else {
-        publisher.publishAllPages();
-    }
-    
 }
 catch(e) {
     require('raptor/logging').logger('build').error(e);
