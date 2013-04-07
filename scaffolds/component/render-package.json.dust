@@ -3,7 +3,6 @@
         "dependencies": [
             { "module": "raptor/renderer" },
             { "module": "raptor/templating" },{?ifWidget}
-            { "module": "raptor/widgets" },
             { "module": "raptor/templating/taglibs/widgets" },{/ifWidget}
             { "module": "{name}" },
             "{shortName}Renderer.js",
