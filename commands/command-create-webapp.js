@@ -46,17 +46,11 @@ module.exports = {
         var outputDir = args.outputDir,
             overwrite = args.overwrite;
         
-        var scaffoldDir = config["scaffold.webapp.dir"];
-        if (!scaffoldDir) {
-            console.error('"scaffold.webapp.dir" not defined in ' + rapido.configFilename + ' config file');
-            return;
-        }
-
         var isStatic = args.type === 'static';
 
         rapido.scaffold(
             {
-                scaffoldDir: scaffoldDir,
+                scaffoldDirProperty: "scaffold.webapp.dir",
                 outputDir: args.outputDir,
                 overwrite: true,
                 data: {

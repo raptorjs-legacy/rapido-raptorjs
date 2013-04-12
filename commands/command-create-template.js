@@ -56,12 +56,6 @@ module.exports = {
             widget = args.widget,
             overwrite = args.overwrite;
 
-        var scaffoldDir = config["scaffold.template.dir"];
-        if (!scaffoldDir) {
-            console.error('"scaffold.template.dir" not defined in ' + rapido.configFilename + ' config file');
-            return;
-        }
-
         if (!templatePath) {
             if (name) {
                 templatePath = name;
@@ -127,7 +121,7 @@ module.exports = {
 
         rapido.scaffold(
             {
-                scaffoldDir: scaffoldDir,
+                scaffoldDirProperty: "scaffold.template.dir",
                 outputDir: outputDir,
                 data: {
                     filename: filename,
