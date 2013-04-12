@@ -1,0 +1,11 @@
+<raptor-taglib>
+    <uri>{uri}</uri>
+
+    <!--
+    <import-taglib path="path/to/some.rtld"/>
+
+    <tag name="my-custom-tag" renderer="some/namespace/CustomTagRenderer">
+        <attribute name="label" type="string"/>
+    </tag>
+    -->
+</raptor-taglib>
