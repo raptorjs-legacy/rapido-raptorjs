@@ -2,6 +2,7 @@
     "scaffold.component.dir": "scaffolds/component",
     "scaffold.page.dir": "scaffolds/page",
     "scaffold.webapp.dir": "scaffolds/webapp",
+    "scaffold.taglib.dir": "scaffolds/taglib",
     "scaffold.template.dir": "scaffolds/template",
     "stacks": {
         "raptorjs": {
@@ -22,6 +23,10 @@
                 "create template": {
                     "description": "Creates a new Raptor Template file",
                     "file": "commands/command-create-template.js"
+                },
+                "create taglib": {
+                    "description": "Creates a new Raptor Templates Taglib",
+                    "file": "commands/command-create-taglib.js"
                 }
             }   
         }
