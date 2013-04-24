@@ -11,6 +11,4 @@ define(
                 }, context);
             }
         };
-        
-        return ButtonTag;
     });
