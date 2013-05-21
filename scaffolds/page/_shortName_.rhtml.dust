@@ -31,7 +31,7 @@
 
             Welcome to RaptorJS!
             <p>
-                Hello, ${~lb}name}!
+                Hello ${~lb}name}!
             </p>
 
             <optimizer:slot name="body"/>

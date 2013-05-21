@@ -1,6 +1,7 @@
 var File = require('raptor/files/File');
 var files = require('raptor/files');
 var addRoutesRegExp = /addRoutes\s*=\s*function\([^\)]*\)\s*\{/;
+var path = require('path');
 
 module.exports = {
 
