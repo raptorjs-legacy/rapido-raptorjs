@@ -1,10 +1,10 @@
 <c:template
     xmlns:c="core"
     xmlns:w="widgets"
-    name="{name}"
+    name="{templateName}"
     params="name,count">
     
-    <div class="{shortNameDashSeparated}"{?ifWidget} w:widget="{name}/{shortName}Widget"{/ifWidget}>
+    <div class="{cssClassName}"{?ifWidget} w:widget="{widgetName}"{/ifWidget}>
         <h1>{name}</h1>
         Hello $name! You have $count new messages.
     </div>

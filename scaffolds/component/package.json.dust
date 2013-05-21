@@ -2,7 +2,7 @@
     "raptor": {
         "dependencies": [{?ifWidget}
             { "module": "raptor/widgets" },
-            "{shortName}Widget.js",{/ifWidget}
+            "{widgetFilename}.js",{/ifWidget}
             "{shortName}.css"
         ]
     }

@@ -1,5 +1,5 @@
 define.Class(
-    '{name}/{shortName}Widget',
+    '{widgetName}',
     function(require, exports, module) {
         var logger = module.logger();
 
@@ -16,7 +16,7 @@ define.Class(
 
             events: ['click'],
 
-            renderer: '{name}/{shortName}Renderer',
+            renderer: '{rendererName}',
 
             setColor: function(color) {
                 this.getEl().style.backgroundColor = color;

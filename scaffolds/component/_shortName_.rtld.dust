@@ -1,6 +1,6 @@
 <raptor-taglib>
 
-    <tag name="{shortNameDashSeparated}" renderer="{name}/{shortName}Renderer">
+    <tag name="{tagName}" renderer="{rendererName}">
         <attribute name="name" type="string"/>
         <attribute name="count" type="integer"/>
         

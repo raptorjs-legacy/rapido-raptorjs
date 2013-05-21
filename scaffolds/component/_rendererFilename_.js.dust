@@ -1,11 +1,11 @@
 define(
-    '{name}/{shortName}Renderer',
+    '{rendererName}',
     function(require) {
         var templating = require('raptor/templating');
 
         return {
             render: function(input, context) {
-                templating.render('{name}', {
+                templating.render('{templateName}', {
                     name: input.name,
                     count: input.count
                 }, context);
