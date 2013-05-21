@@ -1,8 +1,12 @@
 {
-    "modules.dir": "modules",
-    "components.dir": "modules",
-    "pages.dir": "modules/pages",
-    "rtld.file": "modules/app.rtld",
+    "use": [],
+    "modules.dir": "src",
+    "components.dir": "src",
+    "components.prefix": "ui/components",
+    "pages.dir": "src",
+    "pages.prefix": "ui/pages",
+    "rtld.file": "src/app.rtld",
     "webapp.type": "{webappType}",
-    "webapp.dir": "."
+    "webapp.dir": ".",
+    "routes.file": "routes.js"
 }

@@ -1,0 +1,22 @@
+{
+    "raptor": {
+        "dependencies": [
+            "finding.js"
+        ],
+
+        "extensions": [
+            {
+                "name": "node",
+                "dependencies": [
+                    "finding_node.js"
+                ]
+            },
+            {
+                "name": "jquery",
+                "dependencies": [
+                    "finding_jquery.js"
+                ]
+            }
+        ]
+    }
+}

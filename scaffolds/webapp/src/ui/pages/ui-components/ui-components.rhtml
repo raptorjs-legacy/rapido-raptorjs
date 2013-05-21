@@ -8,32 +8,28 @@
     xmlns:reload="raptor-hot-reload"
     params="name">
 
-    <gh:configure layout="full" category-id="0" />
-
-    <optimizer:page name="{name}" cache-key="{name}">
+    <optimizer:page name="ui-components" cache-key="ui-components">
         <dependencies>
             <js url="http://code.jquery.com/jquery-1.8.3.js"/>
             <module name="raptor"/>
             <module name="raptor/widgets"/>
-            <css path="{shortName}.css"/>
+            <module name="ui/components/buttons/simple-button"/>
+            <css path="ui-components.css"/>
+            <module name="ui/components/demo/simple"/>
         </dependencies>
     </optimizer:page>    
 
     <html html:doctype="html">
         <head>
-            <title>{name}</title>
+            <title>UI Components Demo | RaptorJS</title>
             <optimizer:slot name="head"/>
         </head>
         <body>
 
+            <h1>UI Components Demo</h1>
 
-            <h1>{name}</h1>
-
-            Welcome to RaptorJS!
-            <p>
-                Hello, ${~lb}name}!
-            </p>
-
+            <app:simple name="Frank" count="30"/>
+ 
             <optimizer:slot name="body"/>
             <w:init-widgets/>
 

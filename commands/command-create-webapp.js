@@ -47,10 +47,15 @@ module.exports = {
             overwrite = args.overwrite;
         
         var isStatic = args.type === 'static';
+        var scaffoldDir = args.scaffoldDir || config["scaffold.webapp.dir"];
 
+        if (!scaffoldDir) {
+            throw new Error('"scaffold.webapp.dir" not defined in "' + rapido.configFilename + '" config file');
+        }
+        
         rapido.scaffold(
             {
-                scaffoldDirProperty: "scaffold.webapp.dir",
+                scaffoldDir: scaffoldDir,
                 outputDir: args.outputDir,
                 overwrite: true,
                 data: {
@@ -86,6 +91,10 @@ module.exports = {
             rapido.log.info('node build.js');
             rapido.log('\nStatic pages and resources will be written to the following directory:');
             rapido.log.info(new File(outputDir, "build").getAbsolutePath());
+        }
+        else {
+            rapido.log('\nUse the following command to start the server:');
+            rapido.log.info('node server.js --dev');
         }
     }
 }

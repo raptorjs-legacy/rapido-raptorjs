@@ -1,0 +1,9 @@
+{
+    "raptor": {
+        "dependencies": [
+            { "module": "raptor/widgets" },
+            "simple-widget.js",
+            "simple.css"
+        ]
+    }
+}

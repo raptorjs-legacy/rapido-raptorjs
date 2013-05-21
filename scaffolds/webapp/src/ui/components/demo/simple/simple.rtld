@@ -1,0 +1,12 @@
+<raptor-taglib>
+
+    <tag name="simple" renderer="ui/components/demo/simple/simple-renderer">
+        <attribute name="name" type="string"/>
+        <attribute name="count" type="integer"/>
+        
+        <!-- Support widget attributes -->
+        <attribute name="id" uri="widgets"/>
+        <attribute name="event-click" uri="widgets"/>
+    </tag>
+    
+</raptor-taglib>

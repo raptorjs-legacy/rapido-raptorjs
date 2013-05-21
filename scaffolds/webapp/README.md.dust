@@ -1,4 +1,5 @@
 {appName}
-==============================
+==============
 
-Auto-generated RaptorJS web application.
+This application was generated using the [raptor](https://github.scm.corp.ebay.com/raptorjs/raptorjs) 
+command line tool for RaptorJS.

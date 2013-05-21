@@ -1,0 +1,12 @@
+{
+    "raptor": {
+        "dependencies": [
+            { "module": "raptor/renderer" },
+            { "module": "raptor/templating" },
+            { "module": "raptor/templating/taglibs/widgets" },
+            { "module": "ui/components/demo/simple" },
+            "simple-renderer.js",
+            "simple.rhtml"
+        ]
+    }
+}

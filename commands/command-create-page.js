@@ -1,11 +1,16 @@
-var File = require('raptor/files/File'),
-    files = require('raptor/files');
+var File = require('raptor/files/File');
+var files = require('raptor/files');
+var addRoutesRegExp = /addRoutes\s*=\s*function\([^\)]*\)\s*\{/;
 
 module.exports = {
 
     usage: 'Usage: $0 create page <page-name>',
 
     options: {
+        'overwrite': {
+            'boolean': true,
+            describe: 'Overwrite existing files'
+        }
     },
 
     validate: function(args, rapido) {
@@ -19,13 +24,13 @@ module.exports = {
     },
 
     run: function(args, config, rapido) {
-        var scaffoldDir = config["scaffold.page.dir"];
+        var scaffoldDir = args.scaffoldDir || config["scaffold.page.dir"];
         if (!scaffoldDir) {
             throw new Error('"scaffold.page.dir" not defined in "' + rapido.configFilename + '" config file');
         }
 
         var name = args.name;
-
+        var route = name;
 
         var prefix = config['pages.prefix'];
         if (prefix) {
@@ -72,6 +77,7 @@ module.exports = {
                 outputDir: outputDir,
                 data: {
                     name: name,
+                    overwrite: args.overwrite,
                     nameDashSeparated: nameDashSeparated,
                     shortName: shortName,
                     shortNameLower: shortNameLower,
@@ -82,9 +88,22 @@ module.exports = {
                 }
             });
 
-        rapido.log.success('finished', 'Page written to "' + outputDir + '"');
+        if (config['routes.file'] && config['routes.file'].exists()) {
+            var routesJs = config['routes.file'].readAsString();
 
-        var isStatic = config['webapp.type'] === 'static';
+            
+            var relPath = './' + path.relative(config['routes.file'].getParent(), outputDir.getAbsolutePath());
+            var newRouteJs = 'app.get("/' + route + '", require("' + relPath + '").controller);'
+            if (routesJs.indexOf(newRouteJs) === -1) {
+                if (addRoutesRegExp.test(routesJs)) {
+                    routesJs = routesJs.replace(addRoutesRegExp, '$&\n    ' + newRouteJs);
+                    config['routes.file'].writeAsString(routesJs);
+                    rapido.log.success('update', 'Added route to "' + rapido.relativePath(config['routes.file'].getAbsolutePath()) + '"');
+                }
+            }
+        }
+
+        rapido.log.success('finished', 'Page written to "' + rapido.relativePath(outputDir) + '"');
 
         if (isStatic) {
             rapido.log('To build page:');
@@ -92,5 +111,6 @@ module.exports = {
             rapido.log('Or, to build all pages:');
             rapido.log.info('node build.js');
         }
+        
     }
 }

@@ -11,9 +11,14 @@
     "license": "BSD",
     "private": true,
     "dependencies": {
-        "raptor": ">=2.3.17",{?ifStatic}
+        "raptor": ">=2.3.0",{?ifStatic}
         "raptor-static-site-generator": "~0.2.1",{/ifStatic}{?ifDynamic}
-        "express-raptor": "~0.1.0",{/ifDynamic}
+        "express-raptor": "~0.1.0",
+        "express": "~3.1.1",
+        "request": "~2.16.6",
+        "raptor-hot-reload": "~0.1.3",
+        "socket.io": "~0.9.14",
+        "cluster2": "~0.4.0",{/ifDynamic}
         "optimist": "~0.3.5"
     },
     "devDependencies": {{?ifTesting}

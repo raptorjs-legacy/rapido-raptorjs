@@ -1,0 +1,49 @@
+<optimizer-config>
+    <params>
+        <profile>production</profile>
+    </params>
+    
+    <enable-profile>${profile}</enable-profile>
+
+    <profile name="development">
+        <enabled-extensions>jquery,browser,raptor/logging/console,development</enabled-extensions>
+        <bundling-enabled>false</bundling-enabled>
+
+        <in-place-deployment enabled="true">
+            <source-mapping url-prefix="/src" base-dir="../src" />
+            <source-mapping url-prefix="/raptor"  base-dir="../node_modules/raptor/lib" />
+        </in-place-deployment>
+        <minify-js>false</minify-js>
+        <minify-css>false</minify-css>
+        <checksums-enabled>false</checksums-enabled>
+    </profile>
+    
+    <profile name="production">
+        <checksums-enabled>true</checksums-enabled>
+        <enabled-extensions>jquery,browser,production</enabled-extensions>
+        <bundling-enabled>true</bundling-enabled>
+        <resolve-css-urls>true</resolve-css-urls>
+        <in-place-deployment-enabled>false</in-place-deployment-enabled>
+
+        <!-- 
+        NOTE: Do not minify on the client since that is done on 
+              the resource server
+        -->
+        <minify-js>false</minify-js>
+        <minify-css>false</minify-css> 
+
+        <!-- Enable resource externalization: -->
+        <plugin module="raptor-optimizer-ready-plugin"/>
+    </profile>
+
+    <url-prefix>/work/static</url-prefix>
+    <output-dir>../work/static</output-dir>
+
+    <bundles name="default">
+        <bundle name="core">
+            <module name="raptor" recursive="true"/>
+            <module name="raptor/widgets" recursive="true"/>
+        </bundle>
+    </bundles>
+    
+</optimizer-config>

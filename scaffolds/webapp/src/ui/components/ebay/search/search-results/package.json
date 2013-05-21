@@ -1,0 +1,12 @@
+{
+    "raptor": {
+        "dependencies": [
+            { "module": "raptor/templating" },
+            { "module": "raptor/templating/taglibs/widgets" },
+            "search-results-renderer.js",
+            "search-results-widget.js",
+            "search-results.css",
+            "search-results.rhtml"
+        ]
+    }
+}
