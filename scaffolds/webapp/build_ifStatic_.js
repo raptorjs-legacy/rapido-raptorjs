@@ -35,15 +35,21 @@ require('raptor/optimizer').configure(
 resources.addSearchPathDir(modulesDir);
 require('raptor/templating/compiler').setWorkDir(path.join(__dirname, "work"));
 
+
+
 try
 {
-    require('raptor-static-website').writePages({
-        basePagesDir: path.join(__dirname, 'modules/pages'),
-        resourceSearchPathDir: modulesDir,
-        baseOutputDir: path.join(__dirname, 'build'),
-        urlsIncludeFilename: isDev,
-        singlePage: page
-    });
+    require('raptor-static-site-generator')
+        .create()
+        .pagesDir(path.join(__dirname, 'modules/pages'))
+        .outputDir(path.join(__dirname, 'build'))
+        .includeFilenameInUrls(isDev)
+        .generate()
+        .then(
+            function() {
+
+            },
+            onError);
 }
 catch(e) {
     require('raptor/logging').logger('build').error(e);

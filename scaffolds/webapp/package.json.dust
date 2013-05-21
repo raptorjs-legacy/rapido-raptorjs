@@ -9,9 +9,10 @@
     "repository": "",
     "author": "",
     "license": "BSD",
+    "private": true,
     "dependencies": {
-        "raptor": ">=2.3.0",{?ifStatic}
-        "raptor-static-website": "~0.1.0",{/ifStatic}{?ifDynamic}
+        "raptor": ">=2.3.17",{?ifStatic}
+        "raptor-static-site-generator": "~0.2.1",{/ifStatic}{?ifDynamic}
         "express-raptor": "~0.1.0",{/ifDynamic}
         "optimist": "~0.3.5"
     },

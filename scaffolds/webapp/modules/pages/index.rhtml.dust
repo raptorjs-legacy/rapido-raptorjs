@@ -5,9 +5,9 @@
     xmlns:w="widgets"
     xmlns:async="async"
     xmlns:app="app"
-    params="pageOutputPath">
+    params="{?ifStatic}site,page{/ifStatic}">
 
-    <optimizer:page name="index" base-path="$pageOutputPath">
+    <optimizer:page name="index"{?ifStatic} base-path="$pageOutputPath"{/ifStatic}>
         <dependencies>
             <module name="raptor"/>
             <module name="raptor/widgets"/>

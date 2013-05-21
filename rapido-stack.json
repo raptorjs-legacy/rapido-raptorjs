@@ -22,6 +22,10 @@
             "description": "Creates a new RaptorJS webapp",
             "file": "commands/command-create-webapp.js"
         },
+        "create static site": {
+            "description": "Creates a new static website",
+            "file": "commands/command-create-static-site.js"
+        },
         "create template": {
             "description": "Creates a new Raptor Template file",
             "file": "commands/command-create-template.js"

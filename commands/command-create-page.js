@@ -25,6 +25,16 @@ module.exports = {
         }
 
         var name = args.name;
+
+
+        var prefix = config['pages.prefix'];
+        if (prefix) {
+            if (prefix.endsWith('/')) {
+                prefix = prefix.slice(0, -1);
+            }
+            name = prefix + '/' + name;
+        }
+
         var pagePath = name;
 
         if (name.startsWith('/')) {
