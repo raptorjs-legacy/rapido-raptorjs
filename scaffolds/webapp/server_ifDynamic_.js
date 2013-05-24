@@ -139,41 +139,45 @@ else {
     // Enable web sockets for live coding:
     var io = require('socket.io').listen(server, { log: false });
 
-    // Configure and enable hot reloading in development-mode:
-    var hotReloader = require('raptor-hot-reload').create(require)
-        .loggingEnabled(true)
-        // Uncache all cached Node modules
-        .uncache('*')
-        // By-pass the full reload for certain files
-        //.specialReload(path.join(__dirname, 'optimizer-config.xml'), function)
-        .specialReload(path.join(__dirname, 'routes.js'), function(path) {
-            delete require.cache[path];
-            initApp();
-        })
-        .specialReload('*.css', function() {
-            // Do nothing
-        })
-        // Configure which directories/files to watch:
-        .watch(path.join(__dirname, 'src'))
-        // .watchExclude("*.css") //Ignore modifications to certain files
-
-        // Register a listener for the "beforeReload" event"
-        .beforeReload(function() {
-
-        })
-
-        // Register a listener for the "afterReload" event
-        .afterReload(function(eventArgs) {
-            // Re-initialize the application after a full reload
-            initApp();
-        })
-        // Enable support for auto-reloading the browser in response
-        // to modifications to files on the server
-        .clientAutoReload(io.sockets)
-        .start(); // Start watching for changes!
-
     // No clustering...just listen on port 8080:
     var port = 8080;
-    server.listen(port);
-    console.log('Listening on port ' + port + '\nTry: http://localhost:' + port + '/');
+    server.listen(port, function() {
+        console.log('Listening on port ' + port + '\nTry: http://localhost:' + port + '/');
+
+        // Configure and enable hot reloading in development-mode:
+        var hotReloader = require('raptor-hot-reload').create(require)
+            .loggingEnabled(true)
+            // Uncache all cached Node modules
+            .uncache('*')
+            // By-pass the full reload for certain files
+            //.specialReload(path.join(__dirname, 'optimizer-config.xml'), function)
+            .specialReload(path.join(__dirname, 'routes.js'), function(path) {
+                delete require.cache[path];
+                initApp();
+            })
+            .specialReload('*.css', function() {
+                // Do nothing
+            })
+            // Configure which directories/files to watch:
+            .watch(path.join(__dirname, 'src'))
+            // .watchExclude("*.css") //Ignore modifications to certain files
+
+            // Register a listener for the "beforeReload" event"
+            .beforeReload(function() {
+
+            })
+
+            // Register a listener for the "afterReload" event
+            .afterReload(function(eventArgs) {
+                // Re-initialize the application after a full reload
+                initApp();
+            })
+            // Enable support for auto-reloading the browser in response
+            // to modifications to files on the server
+            .clientAutoReload(io.sockets)
+            .start(); // Start watching for changes!
+    })
+    .on('error', function(err) {
+        console.error('Server failed to start. ' + err);
+    });
 }
