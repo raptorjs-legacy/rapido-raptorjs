@@ -1,0 +1,4 @@
+<raptor-taglib>
+    <uri>{libName}</uri>
+    <import-taglib path="{libName}/ui/components/demo/Simple/Simple.rtld"/>
+</raptor-taglib>

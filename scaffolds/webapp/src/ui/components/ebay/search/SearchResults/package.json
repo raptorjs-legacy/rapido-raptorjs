@@ -1,12 +1,12 @@
 {
     "raptor": {
         "dependencies": [
-            { "module": "raptor/renderer" },
             { "module": "raptor/templating" },
             { "module": "raptor/templating/taglibs/widgets" },
-            { "module": "ui/components/demo/Simple" },
-            "SimpleRenderer.js",
-            "Simple.rhtml"
+            "SearchResultsRenderer.js",
+            "SearchResultsWidget.js",
+            "SearchResults.css",
+            "SearchResults.rhtml"
         ]
     }
 }

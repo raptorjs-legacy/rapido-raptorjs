@@ -1,0 +1,7 @@
+.simple {
+    border: 2px solid #000;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 10px;
+    background: linear-gradient(to bottom, hsl(346,96%,90%) 0%,hsl(346,96%,70%) 100%);
+}

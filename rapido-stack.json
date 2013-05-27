@@ -1,5 +1,7 @@
 {
     "scaffold.component.dir": "scaffolds/component",
+    "scaffold.library.dir": "scaffolds/library",
+    "scaffold.module.dir": "scaffolds/module",
     "scaffold.page.dir": "scaffolds/page",
     "scaffold.webapp.dir": "scaffolds/webapp",
     "scaffold.tag.dir": "scaffolds/tag",
@@ -37,6 +39,14 @@
         "create tag": {
             "description": "Creates a new Raptor Templates tag",
             "file": "commands/command-create-tag.js"
+        },
+        "create lib": {
+            "description": "Creates a new shareable RaptorJS library",
+            "file": "commands/command-create-lib.js"
+        },
+        "create module": {
+            "description": "Creates a new RaptorJS module",
+            "file": "commands/command-create-module.js"
         }
     }
 }

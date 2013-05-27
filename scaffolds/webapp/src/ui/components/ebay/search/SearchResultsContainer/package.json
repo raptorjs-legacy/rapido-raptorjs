@@ -1,0 +1,10 @@
+{
+    "raptor": {
+        "dependencies": [
+            { "module": "raptor/renderer" },
+            { "module": "ui/components/ebay/search/SearchResults" },
+            "SearchResultsContainerWidget.js",
+            "SearchResultsContainer.css"
+        ]
+    }
+}

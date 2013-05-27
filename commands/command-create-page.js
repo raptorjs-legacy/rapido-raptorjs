@@ -76,9 +76,9 @@ module.exports = {
             {
                 scaffoldDir: scaffoldDir,
                 outputDir: outputDir,
+                overwrite: args.overwrite,
                 data: {
                     name: name,
-                    overwrite: args.overwrite,
                     nameDashSeparated: nameDashSeparated,
                     shortName: shortName,
                     shortNameLower: shortNameLower,

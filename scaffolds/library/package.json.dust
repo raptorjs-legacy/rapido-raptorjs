@@ -1,0 +1,21 @@
+{
+    "name": "{libName}",
+    "version": "0.1.0",
+    "description": "{libName}",
+    "scripts": {{?ifTesting}
+        "test": "node_modules/.bin/jasmine-node --verbose test/ && node_modules/.bin/jshint modules"{/ifTesting}
+    },
+    "repository": "",
+    "author": "",
+    "license": "BSD",
+    "private": true,
+    "dependencies": {
+    },
+    "devDependencies": {
+    },
+    "raptor": {
+        "search-path": [
+            "src"
+        ]
+    }
+}

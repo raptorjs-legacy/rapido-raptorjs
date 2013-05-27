@@ -1,0 +1,5 @@
+<raptor-taglib>
+    <tag name="search-results-container" renderer="ui/components/ebay/search/SearchResultsContainer/SearchResultsContainerRenderer">
+        <attribute name="search-results" type="expression"/>
+    </tag>
+</raptor-taglib>

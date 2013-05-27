@@ -1,0 +1,8 @@
+{
+    "use": [],
+    "modules.dir": "src",
+    "modules.prefix": "{libName}",
+    "components.dir": "src",
+    "components.prefix": "{libName}/ui/components",
+    "rtld.file": "src/{libName}.rtld"
+}
