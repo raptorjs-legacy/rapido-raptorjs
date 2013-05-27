@@ -1,0 +1,7 @@
+<raptor-taglib>
+
+    <tag name="top-nav" renderer="ui/components/nav/TopNav/TopNavRenderer">
+        <attribute name="active-item"/>
+    </tag>
+    
+</raptor-taglib>

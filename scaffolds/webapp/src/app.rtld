@@ -1,5 +1,6 @@
 <raptor-taglib>
     <uri>app</uri>
+    <import-taglib path="ui/components/nav/TopNav/TopNav.rtld"/>
     <import-taglib path="ui/components/buttons/SimpleButton/SimpleButton.rtld"/>
     <import-taglib path="ui/components/ebay/search/SearchResults/SearchResults.rtld"/>
     <import-taglib path="ui/components/ebay/search/SearchResultsContainer/SearchResultsContainer.rtld"/>

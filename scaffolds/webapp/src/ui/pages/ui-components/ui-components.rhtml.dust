@@ -1,0 +1,105 @@
+<c:template
+    xmlns:c="core"
+    xmlns:html="html"
+    xmlns:optimizer="optimizer"
+    xmlns:w="widgets"
+    xmlns:async="async"
+    xmlns:app="app"
+    xmlns:rb="rebootstrap"
+    xmlns:reload="raptor-hot-reload"
+    params="name">
+
+    <optimizer:page name="ui-components" cache-key="ui-components">
+        <dependencies>
+            <js url="http://code.jquery.com/jquery-1.8.3.js"/>
+            <module name="raptor"/>
+            <module name="raptor/widgets"/>
+            <module name="ui/style/global"/>
+            <rebootstrap-less path="ui-components.css"/>
+            <module name="rebootstrap/base"/>
+            <module name="ui/components/nav/TopNav"/>
+            <module name="rebootstrap/ui/components/buttons/Button"/>
+            <module name="rebootstrap/ui/components/containers/Tabs"/>
+            <module name="rebootstrap/ui/components/nav/Navbar"/>
+            <module name="rebootstrap/ui/components/nav/Collapse"/>
+            <module name="rebootstrap/ui/components/nav/NavItem"/>
+            <module name="rebootstrap/responsive"/>
+        </dependencies>
+    </optimizer:page>    
+
+    <html html:doctype="html">
+        <head>
+            <title>UI Components | {appName}</title>
+            <optimizer:slot name="head"/>
+        </head>
+        <body>
+            <app:top-nav active-item="ui-components"/>
+            
+            <div class="container">
+                <header>
+                    <h1>UI Components | {appName}</h1>
+                </header>
+                
+                <rb:button label="Default"/>
+                <rb:button label="Primary" variant="primary"/>
+                <rb:button label="Info" variant="info"/>
+                <rb:button label="Success" variant="primary"/>
+                <rb:button label="Warning" variant="warning"/>
+                <rb:button label="Danger" variant="danger"/>
+                <rb:button label="Inverse" variant="inverse"/>
+                <rb:button label="Link" href="http://raptorjs.org/"/>
+                
+                <p>
+                    <rb:button label="Large button" size="large" variant="primary"/>
+                    <rb:button label="Large button" size="large"/>
+                </p>
+                <p>
+                    <rb:button label="Default button" variant="primary"/>
+                    <rb:button label="Default button"/>
+                </p>
+                <p>
+                    <rb:button label="Small button" size="small" variant="primary"/>
+                    <rb:button label="Small button" size="small"/>
+                </p>
+                <p>
+                    <rb:button label="Mini button" size="mini" variant="primary"/>
+                    <rb:button label="Mini button" size="mini"/>
+                </p>
+                
+                <rb:nav type="pills">
+                    <rb:nav-item label="Home" active="true"/>
+                    <rb:nav-item label="Profile"/>
+                    <rb:nav-item label="Messages"/>
+                </rb:nav>
+                
+                <rb:tabs>
+                    <rb:tab label="Home">
+                        Content for the Home tab
+                    </rb:tab>
+                    <rb:tab label="Profile">
+                        Content for the Profile tab
+                    </rb:tab>
+                    <rb:tab label="Messages">
+                        Content for the Messages tab
+                    </rb:tab>
+                </rb:tabs>
+                
+                <rb:navbar>
+                    <a class="brand" href="#">Rebootstrap</a>
+                    <rb:nav>
+                        <rb:nav-item label="Home" active="true"/>
+                        <rb:nav-item label="Profile"/>
+                        <rb:nav-item label="Messages"/>
+                        <rb:divider/>
+                        <rb:nav-item label="Help"/>
+                    </rb:nav>
+                </rb:navbar>
+            </div>
+
+            <optimizer:slot name="body"/>
+            <w:init-widgets/>
+
+            <reload:auto-reload enabled="true"/>
+        </body>
+    </html>
+</c:template>

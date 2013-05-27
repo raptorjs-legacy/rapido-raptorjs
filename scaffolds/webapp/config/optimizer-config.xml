@@ -3,6 +3,8 @@
         <profile>production</profile>
     </params>
     
+    <params file="config.json"/>
+    
     <enable-profile>${profile}</enable-profile>
 
     <profile name="development">

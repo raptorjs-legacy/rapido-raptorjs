@@ -1,0 +1,10 @@
+{
+    "raptor": {
+        "dependencies": [
+            { "module": "rebootstrap/ui/components/nav/Navbar" },
+            { "module": "rebootstrap/ui/components/nav/Collapse" },
+            { "module": "rebootstrap/ui/components/nav/NavItem" },
+            "TopNav.css"
+        ]
+    }
+}

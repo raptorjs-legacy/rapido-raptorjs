@@ -1,0 +1,7 @@
+{
+    "raptor": {
+        "dependencies": [
+            { "type": "rebootstrap-less", "path": "global.less" }
+        ]
+    }
+}

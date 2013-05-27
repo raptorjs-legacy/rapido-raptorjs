@@ -160,6 +160,7 @@ else {
             })
             // Configure which directories/files to watch:
             .watch(path.join(__dirname, 'src'))
+            .watch(path.join(__dirname, 'config'))
             // .watchExclude("*.css") //Ignore modifications to certain files
 
             // Register a listener for the "beforeReload" event"

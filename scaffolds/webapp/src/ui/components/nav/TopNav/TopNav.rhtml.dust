@@ -1,0 +1,24 @@
+<c:template
+    xmlns:c="core"
+    xmlns:w="widgets"
+    xmlns:rb="rebootstrap"
+    name="ui/components/nav/TopNav"
+    params="activeItem">
+    
+    <rb:navbar type="fixed-top" inverse="true">
+        <div class="container">
+            <a class="brand" href="/">{appName}</a>
+            
+            <rb:collapse>
+                <rb:nav>
+                    <rb:nav-item label="Home" href="/" active="activeItem === 'home'"/>
+                    <rb:nav-item label="UI Components" href="/ui-components" active="activeItem === 'ui-components'"/>
+                    <rb:nav-item label="Async Fragments" href="/async-fragments" active="activeItem === 'async-fragments'"/>
+                    <rb:nav-item label="Search Results" href="/keywords/nike" active="activeItem === 'search-results'"/>
+                    <rb:nav-item label="Simple Route" href="/hello" active="activeItem === 'simple-route'"/>                    
+                </rb:nav>
+            </rb:collapse>
+        </div>
+    </rb:navbar>
+
+</c:template>

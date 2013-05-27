@@ -1,0 +1,11 @@
+{
+    "raptor": {
+        "dependencies": [
+            { "module": "raptor/renderer" },
+            { "module": "raptor/templating" },
+            { "module": "ui/components/nav/TopNav" },
+            "TopNavRenderer.js",
+            "TopNav.rhtml"
+        ]
+    }
+}

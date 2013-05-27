@@ -1,0 +1,52 @@
+<c:template
+    xmlns:c="core"
+    xmlns:html="html"
+    xmlns:optimizer="optimizer"
+    xmlns:w="widgets"
+    xmlns:async="async"
+    xmlns:app="app"
+    xmlns:rb="rebootstrap"
+    xmlns:reload="raptor-hot-reload"
+    params="name">
+
+    <optimizer:page name="search-results" cache-key="search-results">
+        <dependencies>
+            <js url="http://code.jquery.com/jquery-1.8.3.js"/>
+            <module name="raptor"/>
+            <module name="raptor/widgets"/>
+            <module name="ui/style/global"/>
+            <css path="search-results.css"/>
+            <module name="rebootstrap/base"/>
+            <module name="ui/components/nav/TopNav"/>
+            <module name="ui/components/ebay/search/SearchResultsContainer"/>
+            <module name="rebootstrap/responsive"/>
+        </dependencies>
+    </optimizer:page>    
+
+    <html html:doctype="html">
+        <head>
+            <title>Search Results | {appName}</title>
+            <optimizer:slot name="head"/>
+        </head>
+        <body>
+            <app:top-nav active-item="search-results"/>
+            
+            <div class="container">
+                <header>
+                    <h1>Search Results | {appName}</h1>
+                </header>
+                
+                <async:fragment dependency="searchResults" var="searchResults">
+                    <app:search-results-container search-results="searchResults"/>
+                    <w:init-widgets/>
+                    <div style="clear: both"/>
+                </async:fragment>
+            </div>
+
+            <optimizer:slot name="body"/>
+            <w:init-widgets/>
+
+            <reload:auto-reload enabled="true"/>
+        </body>
+    </html>
+</c:template>
