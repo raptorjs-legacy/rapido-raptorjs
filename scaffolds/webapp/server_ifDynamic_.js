@@ -2,9 +2,13 @@
 // Initialize the environment
 /*****************************************************/
 var environment = process.env.NODE_ENV || 'development';
+process.on('uncaughtException', function(e) {
+    var logger = require('raptor/logging').logger('server.js');
+    logger.error('Uncaught exception: ' + e, e);
+});
 
 /*****************************************************/
-// Parse command-line argument
+// Parse command-line arguments
 /*****************************************************/
 var optimistCommand = require('optimist')(process.argv.slice(2));
 var argv = optimistCommand

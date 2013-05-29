@@ -8,14 +8,16 @@
     xmlns:reload="raptor-hot-reload"
     params="name">
 
-    <gh:configure layout="full" category-id="0" />
-
     <optimizer:page name="{name}" cache-key="{name}">
         <dependencies>
             <js url="http://code.jquery.com/jquery-1.8.3.js"/>
             <module name="raptor"/>
             <module name="raptor/widgets"/>
+            <module name="ui/style/global"/>
             <css path="{shortName}.css"/>
+            <module name="rebootstrap/base"/>{?includeTopNav}
+            <module name="ui/components/nav/TopNav"/>{/includeTopNav}
+            <module name="rebootstrap/responsive"/>
         </dependencies>
     </optimizer:page>    
 
@@ -24,15 +26,18 @@
             <title>{name}</title>
             <optimizer:slot name="head"/>
         </head>
-        <body>
-
-
-            <h1>{name}</h1>
-
-            Welcome to RaptorJS!
-            <p>
-                Hello ${~lb}name}!
-            </p>
+        <body>{?includeTopNav}
+            <app:top-nav active-item="{shortName}"/>{/includeTopNav}
+            
+            <div class="container">
+                <header>
+                    <h1>{name}</h1>
+                </header>
+                
+                <p>
+                    Hello ${~lb}name}!
+                </p>
+            </div>
 
             <optimizer:slot name="body"/>
             <w:init-widgets/>

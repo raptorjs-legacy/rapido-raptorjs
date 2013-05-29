@@ -20,7 +20,8 @@ module.exports = {
             throw 'Page name is required';
         }
         return {
-            name: name
+            name: name,
+            overwrite: args['overwrite'] === true
         }
     },
 
@@ -31,7 +32,7 @@ module.exports = {
         }
 
         var name = args.name;
-        var route = name;
+        var route = '/' + name;
 
         var prefix = config['pages.prefix'];
         if (prefix) {
@@ -72,6 +73,10 @@ module.exports = {
             nameDashSeparated = dashSeparate(name),
             dirPath = name;
 
+        var componentsDir = config['components.dir'];
+        var topNavDir = new File(componentsDir, 'ui/components/nav/TopNav');
+        var includeTopNav = topNavDir.exists();
+
         rapido.scaffold(
             {
                 scaffoldDir: scaffoldDir,
@@ -82,29 +87,43 @@ module.exports = {
                     nameDashSeparated: nameDashSeparated,
                     shortName: shortName,
                     shortNameLower: shortNameLower,
-                    shortNameDashSeparated: shortNameDashSeparated
+                    shortNameDashSeparated: shortNameDashSeparated,
+                    includeTopNav: includeTopNav
                 },
                 afterFile: function(outputFile) {
                     
                 }
             });
 
+        var routeAvailable = false;
+
         if (config['routes.file'] && config['routes.file'].exists()) {
             var routesJs = config['routes.file'].readAsString();
 
-            
             var relPath = './' + path.relative(config['routes.file'].getParent(), outputDir.getAbsolutePath());
-            var newRouteJs = 'app.get("/' + route + '", require("' + relPath + '").controller);'
+            var newRouteJs = 'app.get("' + route + '", require("' + relPath + '").controller);'
+            
+            
+
             if (routesJs.indexOf(newRouteJs) === -1) {
                 if (addRoutesRegExp.test(routesJs)) {
                     routesJs = routesJs.replace(addRoutesRegExp, '$&\n    ' + newRouteJs);
                     config['routes.file'].writeAsString(routesJs);
-                    rapido.log.success('update', 'Added route to "' + rapido.relativePath(config['routes.file'].getAbsolutePath()) + '"');
+                    rapido.log.success('update', 'Added route "' + route + '" to "' + rapido.relativePath(config['routes.file'].getAbsolutePath()) + '"');
+                    routeAvailable = true;
                 }
+            }
+            else {
+                routeAvailable = true;
             }
         }
 
         rapido.log.success('finished', 'Page written to "' + rapido.relativePath(outputDir) + '"');
+
+        if (routeAvailable) {
+            rapido.log.info('\nUse the following URL to test your page:');
+            rapido.log.info('http://localhost:8080' + route);
+        }
 
         if (isStatic) {
             rapido.log('To build page:');
