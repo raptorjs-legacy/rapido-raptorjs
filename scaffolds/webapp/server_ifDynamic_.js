@@ -122,7 +122,6 @@ initApp();
 // Start the server or cluster
 /*****************************************************/
 if (environment === 'production') {
-    // Isolate eBay-specific code as much as possible...
     // Start the cluster and the monitoring app:
     var Cluster = require("cluster2");
     var theCluster = new Cluster({

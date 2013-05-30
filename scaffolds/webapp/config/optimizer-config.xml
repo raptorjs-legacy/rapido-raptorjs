@@ -26,16 +26,8 @@
         <bundling-enabled>true</bundling-enabled>
         <resolve-css-urls>true</resolve-css-urls>
         <in-place-deployment-enabled>false</in-place-deployment-enabled>
-
-        <!-- 
-        NOTE: Do not minify on the client since that is done on 
-              the resource server
-        -->
-        <minify-js>false</minify-js>
-        <minify-css>false</minify-css> 
-
-        <!-- Enable resource externalization: -->
-        <plugin module="raptor-optimizer-ready-plugin"/>
+        <minify-js>true</minify-js>
+        <minify-css>true</minify-css> 
     </profile>
 
     <url-prefix>/work/static</url-prefix>
