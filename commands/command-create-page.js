@@ -101,9 +101,7 @@ module.exports = {
             var routesJs = config['routes.file'].readAsString();
 
             var relPath = './' + path.relative(config['routes.file'].getParent(), outputDir.getAbsolutePath());
-            var newRouteJs = 'app.get("' + route + '", require("' + relPath + '").controller);'
-            
-            
+            var newRouteJs = 'app.get("' + route + '", require("' + relPath + '"));';
 
             if (routesJs.indexOf(newRouteJs) === -1) {
                 if (addRoutesRegExp.test(routesJs)) {

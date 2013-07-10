@@ -1,9 +1,11 @@
 var expressRaptor = require('express-raptor');
 var promises = require('raptor/promises');
+var express = require('express');
 
-exports.controller = expressRaptor.handler(function(context, req, res, next) {
+var app = express();
+
+app.use(expressRaptor.handler(function(context, req, res, next) {
     res.setHeader('Content-Type', 'text/html');
-
 
     // context.dataProviders({
     //     user: function(args) {
@@ -22,4 +24,6 @@ exports.controller = expressRaptor.handler(function(context, req, res, next) {
         {
             name: 'World'
         });
-});
+}));
+
+module.exports = app;
