@@ -13,7 +13,7 @@
     "dependencies": {
         "raptor": ">=2.3.0",{?ifStatic}
         "raptor-static-site-generator": "~0.2.1",{/ifStatic}{?ifDynamic}
-        "express-raptor": "~0.1.0",
+        "express-raptor": "0.2.0-SNAPSHOT",
         "express": "~3.1.1",
         "request": "~2.16.6",
         "raptor-hot-reload": "~0.1.3",
