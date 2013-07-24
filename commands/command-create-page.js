@@ -32,6 +32,7 @@ module.exports = {
         }
 
         var name = args.name;
+        var unprefixedName = name;
         var route = '/' + name;
 
         var prefix = config['pages.prefix'];
@@ -88,7 +89,8 @@ module.exports = {
                     shortName: shortName,
                     shortNameLower: shortNameLower,
                     shortNameDashSeparated: shortNameDashSeparated,
-                    includeTopNav: includeTopNav
+                    includeTopNav: includeTopNav,
+                    unprefixedName: unprefixedName
                 },
                 afterFile: function(outputFile) {
                     
