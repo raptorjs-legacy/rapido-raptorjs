@@ -18,6 +18,7 @@
         <minify-js>false</minify-js>
         <minify-css>false</minify-css>
         <checksums-enabled>false</checksums-enabled>
+        <resolve-css-urls>true</resolve-css-urls>
     </profile>
     
     <profile name="production">
