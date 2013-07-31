@@ -3,6 +3,7 @@
         "dependencies": [
             { "module": "raptor/renderer" },
             { "module": "ui/components/ebay/search/SearchResults" },
+            { "module": "rebootstrap/ui/components/icons/Icon" },
             "SearchResultsContainerWidget.js",
             "SearchResultsContainer.css"
         ]

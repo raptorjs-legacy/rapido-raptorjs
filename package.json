@@ -1,6 +1,6 @@
 {
   "name": "rapido-raptorjs",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "description": "Rapido stack for the RaptorJS Toolkit",
   "main": "index.js",
   "scripts": {

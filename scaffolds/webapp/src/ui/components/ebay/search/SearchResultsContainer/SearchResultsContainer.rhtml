@@ -1,4 +1,4 @@
-<c:template xmlns:w="widgets" xmlns:c="core" xmlns:app="app">
+<c:template xmlns:w="widgets" xmlns:c="core" xmlns:app="app" xmlns:rb="rebootstrap">
     <div class="search-results-container" w:widget="ui/components/ebay/search/SearchResultsContainer/SearchResultsContainerWidget">
         
         <div class="searching" id="${widget.elId('searching')}">
@@ -12,10 +12,10 @@
                     <div class="view-select">
                         View: 
                         <div class="view-icon view-icon-selected" id="${widget.elId('viewIconGallery')}">
-                            <i class="icon-th"/>
+                            <rb:icon name="th"/>
                         </div>
                         <div class="view-icon" id="${widget.elId('viewIconList')}">
-                            <i class="icon-th-list"/>
+                            <rb:icon name="th-list"/>
                         </div>
                     </div>
                 </div>

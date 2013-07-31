@@ -17,6 +17,7 @@
         </in-place-deployment>
         <minify-js>false</minify-js>
         <minify-css>false</minify-css>
+        <resolve-css-urls>true</resolve-css-urls>
         <checksums-enabled>false</checksums-enabled>
         <resolve-css-urls>true</resolve-css-urls>
     </profile>
