@@ -119,32 +119,17 @@ function initApp() {
 initApp();
 
 /*****************************************************/
-// Start the server or cluster
+// Start the server
 /*****************************************************/
-if (environment === 'production') {
-    // Start the cluster and the monitoring app:
-    var Cluster = require("cluster2");
-    var theCluster = new Cluster({
-        port: 8080,
-        cluster: true,
-        connThreshold: 10,
-        ecv: {
-            control: true
-        }
-    }).listen(function(cb) {
-        cb(server);
-    });
 
-    console.log("Listing on port 8080, and started as cluster");
-    new RaptorConfig("./work/config", theCluster);
-}
-else {
-    // Enable web sockets for live coding:
-    var io = require('socket.io').listen(server, { log: false });
+// Enable web sockets for live coding:
+var io = require('socket.io').listen(server, { log: false });
 
-    // No clustering...just listen on port 8080:
-    var port = 8080;
-    server.listen(port, function() {
+// No clustering...just listen on port 8080:
+var port = 8080;
+server.listen(
+    port, 
+    function() {
         console.log('Listening on port ' + port + '\nTry: http://localhost:' + port + '/');
 
         // Configure and enable hot reloading in development-mode:
@@ -184,4 +169,3 @@ else {
     .on('error', function(err) {
         console.error('Server failed to start. ' + err);
     });
-}
