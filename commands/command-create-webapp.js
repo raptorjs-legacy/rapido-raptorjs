@@ -2,6 +2,8 @@ var File = require('raptor/files/File'),
     files = require('raptor/files'),
     path = require('path');
 
+var raptor = require('raptor');
+
 module.exports = {
     usage: 'Usage: $0 create webapp [webapp-name]',
 
@@ -52,19 +54,21 @@ module.exports = {
         if (!scaffoldDir) {
             throw new Error('"scaffold.webapp.dir" not defined in "' + rapido.configFilename + '" config file');
         }
+
+        var scaffoldData = raptor.extend(args, {
+                appName: args.appName || args.name,
+                ifStatic: isStatic,
+                ifDynamic: !isStatic,
+                webappType: args.type,
+                ifTesting: args.includeTesting
+            }, args.scaffoldData || {});
         
         rapido.scaffold(
             {
                 scaffoldDir: scaffoldDir,
                 outputDir: args.outputDir,
                 overwrite: true,
-                data: {
-                    appName: args.name,
-                    ifStatic: isStatic,
-                    ifDynamic: !isStatic,
-                    webappType: args.type,
-                    ifTesting: args.includeTesting
-                },
+                data: scaffoldData,
                 afterFile: function(outputFile) {
                     
                 },
