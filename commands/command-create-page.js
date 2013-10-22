@@ -120,9 +120,18 @@ module.exports = {
 
         rapido.log.success('finished', 'Page written to "' + rapido.relativePath(outputDir) + '"');
 
+        var pageUrl = 'http://localhost:8080' + route;
+
+        if (args.callback) {
+            args.callback({
+                url: pageUrl,
+                outputDir: outputDir
+            });
+        }
+
         if (routeAvailable) {
             rapido.log.info('\nUse the following URL to test your page:');
-            rapido.log.info('http://localhost:8080' + route);
+            rapido.log.info(pageUrl);
         }
 
         if (isStatic) {
