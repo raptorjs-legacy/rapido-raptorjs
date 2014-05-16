@@ -102,7 +102,7 @@ module.exports = {
         if (config['routes.file'] && config['routes.file'].exists()) {
             var routesJs = config['routes.file'].readAsString();
 
-            var relPath = './' + path.relative(config['routes.file'].getParent(), outputDir.getAbsolutePath());
+            var relPath = './' + path.relative(config['routes.file'].getParent(), outputDir.getAbsolutePath()).replace(/\\/g, '/');
             var newRouteJs = 'app.get("' + route + '", require("' + relPath + '"));';
 
             if (routesJs.indexOf(newRouteJs) === -1) {
