@@ -1,24 +1,24 @@
 {
-  "name": "rapido-raptorjs",
-  "version": "0.3.6",
-  "description": "Rapido stack for the RaptorJS Toolkit",
-  "main": "index.js",
-  "scripts": {
-    "test": ""
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/raptorjs/rapido-raptorjs.git"
-  },
-  "keywords": [
-    "rapido",
-    "raptorjs",
-    "ui",
-    "toolkit"
-  ],
-  "author": "Patrick Steele-Idem <psteeleidem@ebay.com>",
-  "readmeFilename": "README.md",
-  "publishConfig": {
-    "registry": "http://registry.npmjs.org/"
-  }
+    "name": "rapido-raptorjs",
+    "description": "Rapido stack for the RaptorJS Toolkit",
+    "main": "index.js",
+    "scripts": {
+        "test": ""
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/raptorjs/rapido-raptorjs.git"
+    },
+    "keywords": [
+        "rapido",
+        "raptorjs",
+        "ui",
+        "toolkit"
+    ],
+    "author": "Patrick Steele-Idem <psteeleidem@ebay.com>",
+    "readmeFilename": "README.md",
+    "publishConfig": {
+        "registry": "http://registry.npmjs.org/"
+    },
+    "version": "0.3.7"
 }
